@@ -1,0 +1,216 @@
+<html>
+	<head>
+		<title>TLB Kid's App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+ 		<meta name="apple-mobile-web-app-capable" content="yes"> 
+		
+		<!--<link rel="stylesheet" type="text/css" href="style.css"> -->
+		<link rel="stylesheet" href="themes/TLB_App.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="main.js"></script>
+		<script src="Chart/Chart.js"></script>
+		<script src="phonegap.js"></script>
+		<!-- <script>
+  			$(function() {
+    			$( "#datepicker" ).datepicker();
+  			});
+  		</script> -->
+
+	</head>
+	
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" class="ui-content">
+				<BR>
+				<p> Earn points in real life and spend them on internet access. </p>
+				<h3 data-theme="a" > Points total: 146 </h3>
+				<a href="#pointEarn" data-theme="a" data-role="button" data-transition="slide"> Earn points </a>
+
+				<a href="#pointSpend" data-theme="b" data-role="button" data-transition="slide"> Spend points </a>
+
+				
+				<h3> Notices </h3>
+				<!-- <em> Bonus points awarded by parents, invalidated claims, internet temporarily blocked, etc </em> -->
+				<ul>
+					<li> The internet will be blocked between 6:30pm and 8:30pm tonight for dinner with Grandma </li>
+					<li> You were awarded 30 bonus points for being so helpful with the grocery shopping </li>
+				</ul>
+				<a href="#moreNotices" data-theme="c" data-transition="slide"> More notices </a>
+
+			</div>
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+		</div>
+
+		<div data-role="page" id="pointEarn">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" class="ui-content">
+				<BR>
+
+				<h3> Points total: 146 </h3>
+				<h3 data-theme="a" > Earn points 
+
+ 				<input type="text" id="datepicker" data-inline="true"  placeholder="Choose date"></p>
+
+				<div data-role="collapsibleSet" data-filter="true" data-inset="true" id="collapsibleChoreList" data-input="#coreOptions">
+					<div data-role="collapsible" data-filterText="Household">
+						<h3> Household chores </h3>
+						<ul data-role="listview" data-inset="false">
+							<li> <p>Empty the dishwasher (10 points)</p> </li>
+							<li> <p>Wash and dry a load of laundry (30 points) </p></li>
+							<li> <p>Cook dinner (30 points)</p> </li>
+							<li> <p>Sweep/ mop/ vacuum 1 room (10 points) </p></li>
+						</ul>
+					</div>
+
+					<div data-role="collapsible" data-filterText="Responsibilities">
+						<h3> Responsibilities</h3>
+						<ul data-role="listview" data-inset="false">
+							<li> <p>Homework 15 minutes (15 points) </p></li>
+							<li> <p>Get to school on time (15 points) </p></li>
+						</ul>
+					</div>
+
+					<div data-role="collapsible" data-filterText="Healthy">
+						<h3> Healthy habits</h3>
+						<ul data-role="listview" data-inset="false">
+							<li> <p>Run 15 minutes (15 points)</p> </li>
+							<li> <p>Other exercise 30 minutes (15 points) </p></li>
+							<li> <p>Leave the house for an hour (15 points) </p></li>
+						</ul>
+					</div>
+				</div>
+
+
+				<input type="number" name="number" required="" pattern="[0-9]*" id="number-pattern" placeholder="Enter points claimed">
+
+				<a href="#upload" data-role="button" data-theme="c"  data-direction="reverse">Upload evidence</a>
+				<a href="#earnHistory" data-theme="b"  data-transition="slide">View earning history</a>
+				<a href="#home" data-role="button" data-theme="b" data-transition="slide" data-direction="reverse">Go Back Home</a>
+			</div>
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+		</div>
+
+		<div data-role="page" id="pointSpend">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" class="ui-content">
+				<h3> Points total: 146 </h3>
+				<p> Click below to spend points </p>
+				<a href="#schedule" data-theme="b"  data-transition="slide">Check schedule</a>
+				<a href="#wifiOn" data-role="button" data-theme="a" >Turn on home wifi </a>
+				<a href="#socialNetworks" data-role="button" data-theme="b" data-transition="slide" data-direction="reverse">Turn on phone data</a>
+				<p> Remember to turn off when you are done. </p>
+				<a href="#home" data-role="button" data-theme="c" data-transition="slide" data-direction="reverse">Go Back Home</a>
+			</div>			
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+		</div>
+
+		<div data-role="page" id="wifiOn">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" class="ui-content">
+				<h3> Points total: 146 </h3>
+				<p> Home wifi is on </p>
+				<a href="#pointSpend" data-role="button">Click to turn off</a>
+				<a href="#socialNetworks" data-role="button" data-theme="b" data-transition="slide" data-direction="reverse">Turn on phone data</a>
+				<p> Remember to turn off when you are done. </p>
+				<a href="#home" data-role="button" data-theme="c" data-transition="slide" data-direction="reverse">Go Back Home</a>
+			</div>			
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+		</div>
+		
+		<div data-role="page" id="earnHistory">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" >
+				<h3 data-theme="a" > Total points this week:
+				<span id="showTotal" role="text" class="ui-content"> </span>
+				</h3>
+				<div id="chartLocation">
+					<canvas id="chartCanvas"></canvas>
+					<br>
+					<!--<div class="ui-grid-b" data-role="chartRange" data-type="horizontal" >
+						<a href=# data-role="button" class="ui-shadow ui-btn ui-corner-all">Week</a>
+						<a href=# data-role="button" class="ui-shadow ui-btn ui-corner-all">Month </a>
+						<a href=# data-role="button" class="ui-shadow ui-btn ui-corner-all">Year</a>
+					</div>-->
+					<form onsubmit="make_datelist()"; return false;>
+						<a href="#editHistory" data-role="button" data-theme="b" data-transition="slide" >Edit History</a>
+					</form>
+					<a href="#home" data-role="button" data-theme="c" data-transition="slide" data-direction="reverse">Go Back Home</a>
+				</div>
+			</div>			
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+
+		</div>
+
+		<div data-role="page" id="editHistory">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" class="ui-content">
+				<BR>
+
+				<form onsubmit=
+					"recordAppWalks( $('#number-to-change').val(), $('#walk_date').val()); 
+					$('#number-to-change').val(''), $('#walk_date').val(); 
+					alert('Submitted');
+					return false;">		          
+	          
+					<h3 data-theme="a" >  Edit your points </h3>
+
+					<label for="walk_date">Date </label>
+					<input type="date" name="walk_date" required=""  value="" id="walk_date" list="walk_datalist"  data-role="date">
+
+    				<!--<label for="w_day">Select Day</label>
+      				<div id="w_dayOptions"></div>-->
+
+					<label for="number-to-change"> Number of points </label>
+					<input type="number" name="number-to-change" required="" pattern="[0-9]*" id="number-to-change" placeholder="enter date to see number currently stored">
+
+					<br>
+					<input type="submit" value="Submit" data-theme="b">		          
+					<datalist id="dates_pattern1_datalist">		          </datalist>		        
+				</form>				
+				<a href="#walkHistory" data-theme="" data-role="button" data-transition="slide" data-direction="reverse">Go back to  point history</a>
+			</div>
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+		</div>
+
+		<div data-role="page" id="moreNotices">
+			<div data-role="header" data-theme="a">
+				<img src="themes/TLBbanner.jpg" alt="TLB banner" width="100%">
+			</div>
+			<div role="main" class="ui-content">
+				<BR>
+				
+				<h3> Notices </h3>
+				<!-- <em> Bonus points awarded by parents, invalidated claims, internet temporarily blocked, etc </em> -->
+				<ul>
+					<li> <em data-theme="a"> 10:31am 19/01/2016  </em> The internet will be blocked between 6:30pm and 8:30pm tonight for dinner with Grandma </li>
+					<li> <em data-theme="a"> 3:20pm 18/01/2016  </em> You were awarded 30 bonus points for being so helpful with the grocery shopping </li>
+					<li> <em data-theme="a"> 9:04pm 17/01/2016  </em> Your photo evidence for "Emptying the dishwasher" on the 16/01/2016 was rejected </li>
+				</ul>
+				<a href="#moreNotices" data-theme="a" data-transition="slide"> More notices </a>
+				<a href="#home" data-role="button" data-theme="c" data-transition="slide" data-direction="reverse">Go Back Home</a>
+			</div>
+			<!-- <div data-role="footer" data-theme="a" data-position="fixed"><h4>(c) 2015</h4></div> -->
+		</div>
+
+	</body>
+</html>
